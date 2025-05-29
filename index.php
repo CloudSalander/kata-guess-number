@@ -8,6 +8,9 @@ $randomNumber = rand(MIN_NUM,MAX_NUM);
 $inputNumber = intval(readline("Tip a number,please"));
 
 while($inputNumber != $randomNumber) {
+    if($inputNumber > $randomNumber)  echo "Més baix"; 
+    else if($inputNumber == $randomNumber) break;
+    else echo "Més alt";
     $inputNumber = intval(readline("Tip a number,please"));
 }
 
