@@ -5,18 +5,20 @@ class GuessNumber {
     const MAX_NUM = 100;
     const INPUT_MSG = "Tip a number,please ";
     const CONGRATS_MSG = "Es juernes y el cuerpo lo sabe!";
+
+    private int $randomNumber;
     
     public function __construct() {
         $this->randomNumber = rand(MIN_NUM,MAX_NUM);
     }
 
     public function play(): void {
-        $inputNumber = $this->readInt();
-        while($inputNumber != $randomNumber) {
-            $this->checkNumber($inputNumber,$randomNumber);
-            echo self::PHP_EOL;
+        do {
             $inputNumber = $this->readInt();
-        }
+            $this->checkNumber($inputNumber,$this->randomNumber);
+            echo PHP_EOL;
+        }while($inputNumber != $this->randomNumber);
+
         echo self::CONGRATS_MSG.PHP_EOL;
     }
 
@@ -25,13 +27,10 @@ class GuessNumber {
     }
     
     private function checkNumber(int $inputNumber, int $randomNumber): bool {
-        if($inputNumber == $randomNumber) return false;
         if($inputNumber > $randomNumber) echo "Més baix";
         else if($inputNumber < $randomNumber) echo "Més alt";
         return true;
     }
-
-
 
 }
 
