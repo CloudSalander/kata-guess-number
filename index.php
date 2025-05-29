@@ -18,11 +18,9 @@ function readInt(): int {
     return intval(readline(INPUT_MSG));
 }
 
-function checkNumber(int $inputNumber, int $randomNumber): bool {
-    if($inputNumber == $randomNumber) return false;
+function checkNumber(int $inputNumber, int $randomNumber): void {
     if($inputNumber > $randomNumber) echo "Més baix";
     else if($inputNumber < $randomNumber) echo "Més alt";
-    return true;
 }
 
 echo CONGRATS_MSG.PHP_EOL;
