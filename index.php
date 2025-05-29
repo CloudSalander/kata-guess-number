@@ -6,14 +6,13 @@ define('CONGRATS_MSG', "Es juernes y el cuerpo lo sabe!");
 
 $randomNumber = rand(MIN_NUM,MAX_NUM);
 
-$inputNumber = readInt();
-
-while($inputNumber != $randomNumber) {
+do {
+    $inputNumber = readInt();
     checkNumber($inputNumber,$randomNumber);
     echo PHP_EOL;
-    $inputNumber = readInt();
-}
-
+}while($inputNumber != $randomNumber);
+   
+    
 function readInt(): int {
     return intval(readline(INPUT_MSG));
 }
